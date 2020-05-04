@@ -11,7 +11,7 @@ steps:
   # Acquire the `vsce` tool and use it to package
   - script: |
       sudo npm install -g vsce
-      vsce package --baseImagesUrl="."
+      vsce package --baseImagesUrl="https://dev.azure.com/SECOTRON/secotron-color-theme/_apis/git/repositories/secotron-color-theme/items?download=true&api-version=5.0&path=%2f"
     displayName: Create VSIX
 
   # For releasable builds, we'll want the branch
