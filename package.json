@@ -45,7 +45,7 @@
     ],
     "main": "./extension",
     "scripts": {
-		"test": "jest",
+		"test": "jest --passWithNoTests",
         "ui-test": "node ./test/test-runner"
 	},
 	"devDependencies": {
