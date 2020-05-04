@@ -43,7 +43,6 @@
         "mint",
         "green"
     ],
-    "main": "./extension",
     "scripts": {
 		"test": "jest --passWithNoTests",
         "ui-test": "node ./test/test-runner"
