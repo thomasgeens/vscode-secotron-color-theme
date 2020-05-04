@@ -43,6 +43,7 @@
         "mint",
         "green"
     ],
+    "main": "./extension",
     "scripts": {
 		"test": "jest",
         "ui-test": "node ./test/test-runner"
