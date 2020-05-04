@@ -9,7 +9,7 @@
         "email": "thomas.geens@secotron.eu",
         "url": "https://thomas.geens.be"
     },
-    "repository": "https://dev.azure.com/SECOTRON/_git/secotron-color-theme",
+    "repository": "https://dev.azure.com/SECOTRON/secotron-color-theme/_git/secotron-color-theme",
     "engines": {
         "vscode": "^1.44.0"
     },
