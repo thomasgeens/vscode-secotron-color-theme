@@ -4,6 +4,10 @@ All notable changes to the "secotron-color-theme" extension will be documented i
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.3] - 2020-05-04
+### Fixed
+- Fixed bug in which exension didn't show up anymore as a Theme. This was due to the 'main' tag being wrongly added to the Extension Manifest.
+
 ## [1.0.2] - 2020-05-04
 ### Fixed
 - Fixed a bug in which images weren't shown in the README.md File by adding the baseImagesUrl option to the VSCE Package Command. Used the Azure Devops API this time to make sure images are correctly shown. (e.g. "https://dev.azure.com/$organization/$projectName/_apis/git/repositories/$repoName/items?download=true&api-version=5.0&path=%2f$filePath")
