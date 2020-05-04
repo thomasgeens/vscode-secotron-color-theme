@@ -9,6 +9,7 @@
         "email": "thomas.geens@secotron.eu",
         "url": "https://thomas.geens.be"
     },
+    "repository": "https://dev.azure.com/SECOTRON/_git/secotron-color-theme",
     "engines": {
         "vscode": "^1.44.0"
     },
@@ -46,7 +47,8 @@
 		"vscode:prepublish": "yarn run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"test": "node ./out/sample/test/runTest.js"
+        "test": "node ./out/sample/test/runTest.js",
+        "deploy": "vsce publish --yarn"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
