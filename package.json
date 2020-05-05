@@ -11,7 +11,7 @@
     },
     "repository": "https://dev.azure.com/SECOTRON/secotron-color-theme/_git/secotron-color-theme",
     "engines": {
-        "vscode": "^1.44.0"
+        "vscode": "^1.10.0"
     },
     "icon": "logo.png",
     "galleryBanner": {
