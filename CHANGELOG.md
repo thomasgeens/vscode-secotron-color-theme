@@ -4,6 +4,10 @@ All notable changes to the "secotron-color-theme" extension will be documented i
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.5] - 2020-05-06
+### Changed
+- Changed "terminal.ansiBrightBlack" color from  "#333333" to "#666666" for better readability.
+
 ## [1.0.4] - 2020-05-05
 ### Changed
 - Lowered minimum Visual Studio Code version requirements for the Color Theme Extension from 1.44.0 to 1.0.0

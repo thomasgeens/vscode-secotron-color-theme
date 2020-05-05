@@ -55,7 +55,7 @@
 		"tab.inactiveBackground": "#18345d",
 		"terminal.ansiBlack": "#111111",
 		"terminal.ansiBlue": "#437c90",
-		"terminal.ansiBrightBlack": "#333333",
+		"terminal.ansiBrightBlack": "#666666",
 		"terminal.ansiBrightBlue": "#80baff",
 		"terminal.ansiBrightCyan": "#78ffff",
 		"terminal.ansiBrightGreen": "#b8f171",
