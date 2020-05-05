@@ -4,6 +4,10 @@ All notable changes to the "secotron-color-theme" extension will be documented i
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.4] - 2020-05-05
+### Changed
+- Lowered minimum Visual Studio Code version requirements for the Color Theme Extension from 1.44.0 to 1.0.0
+
 ## [1.0.3] - 2020-05-04
 ### Fixed
 - Fixed bug in which exension didn't show up anymore as a Theme. This was due to the 'main' tag being wrongly added to the Extension Manifest.

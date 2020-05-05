@@ -3,7 +3,7 @@
     "publisher": "SECOTRON",
     "displayName": "SECOTRON Color Theme",
     "description": "Blue Color Theme in Dark Mode based upon SECOTRON's Corporate Identity Color Palette.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": {
         "name": "SECOTRON | Thomas Geens",
         "email": "thomas.geens@secotron.eu",
@@ -11,7 +11,7 @@
     },
     "repository": "https://dev.azure.com/SECOTRON/secotron-color-theme/_git/secotron-color-theme",
     "engines": {
-        "vscode": "^1.10.0"
+        "vscode": "^1.0.0"
     },
     "icon": "logo.png",
     "galleryBanner": {
