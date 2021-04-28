@@ -4,6 +4,10 @@ All notable changes to the "secotron-color-theme" extension will be documented i
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.7] - 2021-04-28
+### Fixed
+- Fixed json parsing error within color-theme.json.
+
 ## [1.0.6] - 2021-04-28
 ### Changed
 - Changed foregroundcolor for functions in code editor from "#437C90" to "#5fb0ce" for better readability.
