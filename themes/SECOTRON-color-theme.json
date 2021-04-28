@@ -45,7 +45,7 @@
 		"settings.textInputBackground": "#292929",
 		"sideBar.background": "#18345d",
 		"sideBarSectionHeader.background": "#00000000",
-		"sideBarSectionHeader.border": "#cccccc33",#000000
+		"sideBarSectionHeader.border": "#cccccc33",
 		"sideBarTitle.foreground": "#bbbbbb",
 		"statusBar.background": "#0c1d45",
 		"statusBar.debuggingBackground": "#0c1d45",
