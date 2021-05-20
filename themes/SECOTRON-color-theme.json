@@ -973,7 +973,7 @@
 		{
 			"scope": "keyword, storage, storage.type, entity.name.tag.css",
 			"settings": {
-				"foreground": "#30638E",
+				"foreground": "#709eb8",
 				"fontStyle": ""
 			}
 		},
