@@ -50,7 +50,9 @@ describe("SECOTRON color theme", () => {
     for (const token of theme.tokenColors) {
       const fg = token?.settings?.foreground;
       if (fg !== undefined && !HEX_COLOR.test(fg)) {
-        invalid.push(`scope "${token.scope ?? "(unnamed)"}" foreground: "${fg}"`);
+        invalid.push(
+          `scope "${token.scope ?? "(unnamed)"}" foreground: "${fg}"`,
+        );
       }
     }
     expect(invalid).toEqual([]);
