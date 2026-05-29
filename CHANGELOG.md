@@ -4,6 +4,16 @@ All notable changes to the "secotron-color-theme" extension will be documented i
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.1.1](https://github.com/thomasgeens/vscode-secotron-color-theme/compare/v1.1.0...v1.1.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* **ci:** add packages key to release-please config for header/footer override ([1e0efde](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/1e0efde86257de5a8c47041e60220aa17ce3f138))
+* **package:** update .vscodeignore to exclude all dev/CI files from VSIX ([2d43cd2](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/2d43cd240ad912c68094512a1c832cfbd7eb9fa7))
+* **package:** use allowlist .vscodeignore — exclude everything by default ([bdf296d](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/bdf296d201c3683bc13daf9255f4f79630d30972))
+* **release:** trigger release-please for v1.1.1 ([08130a4](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/08130a48580bf5f81ac1134be72b0ce5e1c1ed96))
+
 ## [1.0.8] - 2021-05-20
 
 ### Changed
