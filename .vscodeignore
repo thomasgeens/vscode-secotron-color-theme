@@ -1,36 +1,13 @@
-## Dev tooling
-.azure-pipelines/**
-.claude/**
-.envrc
-.envrc.local
-.envrc.local.example
-.eslintrc.json
-.gitattributes
-.gitconfig
-.gitignore
-.github/**
-.markdownlint.yaml
-.nvmrc
-.release-please-config.json
-.release-please-manifest.json
-.trunk/**
-.vscode/**
-.vscode-test/**
-.vscodeignore
-.yamllint.yaml
-Brewfile
-CONTRIBUTING.md
-jsconfig.json
-Makefile
-package-lock.json
-SECURITY.md
-vscode-secotron-color-theme.code-workspace
+# Exclude everything by default, then explicitly include only what the extension needs.
+# Any new file added to the repo is automatically excluded from the VSIX.
+**
 
-## Tests & mocks
-__mocks__/**
-test/**
-**/*.spec.js
-
-## Source maps & build artifacts
-out/**
-dist/**
+!LICENSE
+!LICENSE.txt
+!CHANGELOG.md
+!README.md
+!package.json
+!color_palette.png
+!example.png
+!logo.png
+!themes/**
