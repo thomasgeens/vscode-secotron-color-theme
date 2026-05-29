@@ -1,13 +1,36 @@
+## Dev tooling
+.azure-pipelines/**
+.claude/**
+.envrc
+.envrc.local
+.envrc.local.example
+.eslintrc.json
+.gitattributes
+.gitconfig
+.gitignore
+.github/**
+.markdownlint.yaml
+.nvmrc
+.release-please-config.json
+.release-please-manifest.json
+.trunk/**
 .vscode/**
 .vscode-test/**
-.gitignore
+.vscodeignore
+.yamllint.yaml
+Brewfile
+CONTRIBUTING.md
+jsconfig.json
+Makefile
+package-lock.json
+SECURITY.md
+vscode-secotron-color-theme.code-workspace
+
+## Tests & mocks
 __mocks__/**
-.github/**
-.vscode/**
 test/**
 **/*.spec.js
-package-lock.json
-.eslintrc.json
-.azure-pipelines/**
-jsconfig.json
 
+## Source maps & build artifacts
+out/**
+dist/**
