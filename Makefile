@@ -3,7 +3,10 @@ YELLOW := \033[0;33m
 RED    := \033[0;31m
 NC     := \033[0m
 
-.PHONY: all setup brew install test lint fmt package clean help
+# Override with CODE=code-insiders to use VS Code Insiders
+CODE ?= code
+
+.PHONY: all setup brew install test lint fmt package dev install-ext clean help
 
 all: help
 
@@ -44,6 +47,18 @@ package:
 	@npx @vscode/vsce package
 	@echo "${GREEN}Done.${NC}"
 
+# Open an Extension Development Host window with the theme loaded from source
+dev:
+	@echo "${YELLOW}Launching Extension Development Host ($(CODE))...${NC}"
+	@$(CODE) --extensionDevelopmentPath=$(CURDIR)
+	@echo "${GREEN}VS Code opened — switch theme to SECOTRON to preview.${NC}"
+
+# Package and install the extension permanently into VS Code
+install-ext: package
+	@echo "${YELLOW}Installing extension into $(CODE)...${NC}"
+	@$(CODE) --install-extension $(shell ls -t *.vsix | head -1)
+	@echo "${GREEN}Done. Reload VS Code to activate.${NC}"
+
 clean:
 	@echo "${YELLOW}Cleaning...${NC}"
 	@rm -rf node_modules/ *.vsix out/ dist/
@@ -58,5 +73,9 @@ help:
 	@echo "  test      run jest tests"
 	@echo "  lint      trunk check --all"
 	@echo "  fmt       trunk fmt --all"
-	@echo "  package   build .vsix with vsce"
-	@echo "  clean     remove node_modules, *.vsix, build artifacts"
+	@echo "  package      build .vsix with vsce"
+	@echo "  dev          open Extension Development Host (live from source)"
+	@echo "  install-ext  package + install VSIX permanently into VS Code"
+	@echo "  clean        remove node_modules, *.vsix, build artifacts"
+	@echo ""
+	@echo "  CODE=code-insiders  use VS Code Insiders for dev/install-ext targets"
