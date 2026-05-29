@@ -10,11 +10,16 @@ CODE ?= code
 
 all: help
 
-# One-time setup: install tools and activate repo-local git aliases
+# One-time setup: install tools, activate git aliases, scaffold local secrets
 setup: brew
 	@echo "${YELLOW}Activating repo-local git aliases...${NC}"
 	@git config --local include.path ../.gitconfig
-	@echo "${GREEN}Done. Git aliases from .gitconfig are now active.${NC}"
+	@if [ ! -f .envrc.local ]; then \
+		cp .envrc.local.example .envrc.local; \
+		echo "${YELLOW}Created .envrc.local — fill in VSCE_PAT before publishing.${NC}"; \
+	fi
+	@direnv allow 2>/dev/null || true
+	@echo "${GREEN}Done.${NC}"
 
 # Install required tools via Homebrew
 brew:

@@ -1,0 +1,10 @@
+# Copy this file to .envrc.local and fill in your values.
+# .envrc.local is gitignored — never committed.
+#
+# VSCE_PAT: Personal Access Token for publishing to the VS Code Marketplace.
+# Create one at https://dev.azure.com → User Settings → Personal Access Tokens
+# Required scopes: Marketplace → Manage
+#
+# Once set, 'make prerelease' will pick this up automatically via direnv.
+
+export VSCE_PAT="your-token-here"
