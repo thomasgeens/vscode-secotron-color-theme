@@ -11,3 +11,6 @@ brew "node"
 
 # Trunk — linting orchestrator (macOS cask; Linux: curl https://get.trunk.io -fsSL | bash)
 cask "trunk-io"
+
+# direnv — auto-loads .envrc when entering the repo directory
+brew "direnv"
