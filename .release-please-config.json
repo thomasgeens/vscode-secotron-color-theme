@@ -2,5 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "release-type": "node",
   "pull-request-header": "## Release",
-  "pull-request-footer": ""
+  "pull-request-footer": "",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "pull-request-header": "## Release",
+      "pull-request-footer": ""
+    }
+  }
 }
