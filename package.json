@@ -1,57 +1,56 @@
 {
-    "name": "secotron-color-theme",
-    "publisher": "SECOTRON",
-    "displayName": "SECOTRON Color Theme",
-    "description": "Blue Color Theme in Dark Mode based upon SECOTRON's Corporate Identity Color Palette.",
-    "version": "1.0.8",
-    "author": {
-        "name": "SECOTRON | Thomas Geens",
-        "email": "thomas.geens@secotron.eu",
-        "url": "https://thomas.geens.be"
-    },
-    "repository": "https://github.com/thomasgeens/vscode-secotron-color-theme",
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "icon": "logo.png",
-    "galleryBanner": {
-        "color": "#30638e",
-        "theme": "dark"
-    },
-    "license": "MIT",
-    "homepage": "https://www.secotron.eu",
-    "bugs": {
-        "url": "https://www.secotron.eu",
-        "email": "support@secotron.eu"
-    },
-    "categories": [
-        "Themes"
-    ],
-    "contributes": {
-        "themes": [
-            {
-                "label": "SECOTRON",
-                "uiTheme": "vs-dark",
-                "path": "./themes/SECOTRON-color-theme.json"
-            }
-        ]
-    },
-    "keywords": [
-        "blue",
-        "gold",
-        "corporate",
-        "mint",
-        "green"
-    ],
-    "scripts": {
-		"test": "jest --passWithNoTests",
-        "ui-test": "node ./test/test-runner"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.0.0",
-        "eslint": "^6.8.0",
-        "jest": "^25.4.0",
-        "vscode-test": "^1.0.0"
-	},
-	"dependencies": {}
+  "name": "secotron-color-theme",
+  "publisher": "SECOTRON",
+  "displayName": "SECOTRON Color Theme",
+  "description": "Blue Color Theme in Dark Mode based upon SECOTRON's Corporate Identity Color Palette.",
+  "version": "1.0.8",
+  "author": {
+    "name": "SECOTRON | Thomas Geens",
+    "email": "thomas.geens@secotron.eu",
+    "url": "https://thomas.geens.be"
+  },
+  "repository": "https://github.com/thomasgeens/vscode-secotron-color-theme",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "icon": "logo.png",
+  "galleryBanner": {
+    "color": "#30638e",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "homepage": "https://www.secotron.eu",
+  "bugs": {
+    "url": "https://www.secotron.eu",
+    "email": "support@secotron.eu"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "SECOTRON",
+        "uiTheme": "vs-dark",
+        "path": "./themes/SECOTRON-color-theme.json"
+      }
+    ]
+  },
+  "keywords": [
+    "blue",
+    "gold",
+    "corporate",
+    "mint",
+    "green"
+  ],
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "ui-test": "node ./test/test-runner"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.0.0",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0"
+  }
 }

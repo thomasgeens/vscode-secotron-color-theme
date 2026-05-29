@@ -1,0 +1,8 @@
+# Prettier friendly markdownlint config (all formatting rules disabled)
+extends: markdownlint/style/prettier
+# Allow repeated headings (### Changed, ### Fixed, etc.) across changelog versions
+MD024: false
+# Allow multiple top-level headings (changelog has ## version sections)
+MD025: false
+# Allow bare URLs
+MD034: false

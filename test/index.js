@@ -14,18 +14,18 @@ const jest = require("jest");
 function run(testRoot, reportTestResults) {
   jest
     .runCLI({ testMatch: ["<rootDir>/test/**/*.e2e.js"] }, [
-      path.resolve(__dirname)
+      path.resolve(__dirname),
     ])
-    .then(jestCliCallResult => {
-      jestCliCallResult.results.testResults.forEach(testResult => {
+    .then((jestCliCallResult) => {
+      jestCliCallResult.results.testResults.forEach((testResult) => {
         testResult.testResults
-          .filter(assertionResult => assertionResult.status === "passed")
+          .filter((assertionResult) => assertionResult.status === "passed")
           .forEach(({ ancestorTitles, title, status }) => {
             console.info(`  ● ${ancestorTitles} › ${title} (${status})`);
           });
       });
 
-      jestCliCallResult.results.testResults.forEach(testResult => {
+      jestCliCallResult.results.testResults.forEach((testResult) => {
         if (testResult.failureMessage) {
           console.error(testResult.failureMessage);
         }
@@ -33,7 +33,7 @@ function run(testRoot, reportTestResults) {
 
       reportTestResults(undefined, jestCliCallResult.results.numFailedTests);
     })
-    .catch(errorCaughtByJestRunner => {
+    .catch((errorCaughtByJestRunner) => {
       reportTestResults(errorCaughtByJestRunner, 0);
     });
 }

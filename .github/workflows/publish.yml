@@ -2,26 +2,27 @@ name: Publish
 
 on:
   push:
-    tags: ['v*']
-  workflow_dispatch:
+    tags: ["v*"]
+  workflow_dispatch: # checkov:skip=CKV_GHA_7:dry_run controls publish step only, not the build artifact
     inputs:
       dry_run:
-        description: 'Dry run (package only, skip publish)'
+        description: "Dry run (package only, skip publish)"
         type: boolean
         default: false
+
+permissions:
+  contents: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v5
 
       - uses: actions/setup-node@v5
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: "22"
+          cache: "npm"
 
       - run: npm ci
 
@@ -38,5 +39,5 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: '*.vsix'
+          files: "*.vsix"
           generate_release_notes: true

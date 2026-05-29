@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,8 +17,8 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: "22"
+          cache: "npm"
 
       - run: npm ci
 
@@ -27,5 +30,5 @@ jobs:
       - uses: actions/upload-artifact@v5
         with:
           name: secotron-color-theme-${{ github.sha }}
-          path: '*.vsix'
+          path: "*.vsix"
           retention-days: 7
