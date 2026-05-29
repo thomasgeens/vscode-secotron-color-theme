@@ -1,0 +1,18 @@
+# Normalize line endings on commit
+* text=auto
+
+# Source files — always LF
+*.js text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+*.ts text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+Makefile text eol=lf
+
+# Binary — no line ending conversion
+*.png binary
+*.jpg binary
+*.gif binary
+*.vsix binary

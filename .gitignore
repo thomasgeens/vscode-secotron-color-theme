@@ -1,3 +1,16 @@
-node_modules
+node_modules/
 .vscode-test/
 *.vsix
+
+# OS
+.DS_Store
+
+# Logs & temp
+*.log
+*.tmp
+*.temp
+/temp/
+
+# Build artifacts
+/out/
+/dist/
