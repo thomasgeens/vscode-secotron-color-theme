@@ -3,9 +3,21 @@ YELLOW := \033[0;33m
 RED    := \033[0;31m
 NC     := \033[0m
 
-.PHONY: all install test lint fmt package clean help
+.PHONY: all setup brew install test lint fmt package clean help
 
 all: help
+
+# One-time setup: install tools and activate repo-local git aliases
+setup: brew
+	@echo "${YELLOW}Activating repo-local git aliases...${NC}"
+	@git config --local include.path ../.gitconfig
+	@echo "${GREEN}Done. Git aliases from .gitconfig are now active.${NC}"
+
+# Install required tools via Homebrew
+brew:
+	@echo "${YELLOW}Installing tools via Homebrew...${NC}"
+	@brew bundle
+	@echo "${GREEN}Done.${NC}"
 
 install:
 	@echo "${YELLOW}Installing dependencies...${NC}"
@@ -40,6 +52,8 @@ clean:
 help:
 	@echo "SECOTRON Color Theme — available targets:"
 	@echo ""
+	@echo "  setup     one-time clone setup: brew bundle + activate git aliases"
+	@echo "  brew      install tools via Homebrew (brew bundle)"
 	@echo "  install   npm ci"
 	@echo "  test      run jest tests"
 	@echo "  lint      trunk check --all"
