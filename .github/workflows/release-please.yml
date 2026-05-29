@@ -14,5 +14,5 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v4
         with:
-          manifest-file: .release-please-manifest.json
+          release-type: node
           config-file: .release-please-config.json
