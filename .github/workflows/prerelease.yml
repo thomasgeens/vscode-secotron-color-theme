@@ -1,0 +1,38 @@
+name: Pre-release
+
+on:
+  pull_request:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  publish-prerelease:
+    if: github.event.label.name == 'pre-release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - run: npm ci
+
+      - run: npm test
+
+      - name: Package VSIX
+        run: npx @vscode/vsce package --pre-release
+
+      - name: Publish pre-release to VS Code Marketplace
+        run: npx @vscode/vsce publish --pre-release -p ${{ secrets.VSCE_PAT }}
+
+      - uses: actions/upload-artifact@v5
+        with:
+          name: prerelease-${{ github.event.pull_request.head.sha }}
+          path: "*.vsix"
+          retention-days: 7

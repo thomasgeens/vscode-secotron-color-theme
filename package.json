@@ -11,7 +11,7 @@
   },
   "repository": "https://github.com/thomasgeens/vscode-secotron-color-theme",
   "engines": {
-    "vscode": "^1.0.0"
+    "vscode": "^1.63.0"
   },
   "icon": "logo.png",
   "galleryBanner": {
