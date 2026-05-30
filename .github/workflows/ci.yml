@@ -27,7 +27,7 @@ jobs:
       - name: Package VSIX
         run: npx @vscode/vsce package
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         with:
           name: secotron-color-theme-${{ github.sha }}
           path: "*.vsix"
