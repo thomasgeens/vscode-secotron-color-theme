@@ -36,3 +36,29 @@ jobs:
           name: prerelease-${{ github.event.pull_request.head.sha }}
           path: "*.vsix"
           retention-days: 7
+
+      - name: Job summary
+        if: always()
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_SHA: ${{ github.event.pull_request.head.sha }}
+          SERVER_URL: ${{ github.server_url }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          VSIX_FILE=$(ls *.vsix 2>/dev/null | head -1)
+          VSIX_SIZE=$(du -sh "$VSIX_FILE" 2>/dev/null | cut -f1 || echo "—")
+          {
+            echo "## Pre-release Published"
+            echo "| | |"
+            echo "|---|---|"
+            echo "| **Version** | \`$VERSION\` (pre-release) |"
+            echo "| **VSIX** | \`$VSIX_FILE\` ($VSIX_SIZE) |"
+            echo "| **PR** | [#${PR_NUMBER}](${PR_URL}) — \`${PR_BRANCH}\` |"
+            echo "| **Commit** | [\`${PR_SHA::7}\`](${SERVER_URL}/${REPOSITORY}/commit/${PR_SHA}) |"
+            echo "| **Marketplace** | [SECOTRON Color Theme](https://marketplace.visualstudio.com/items?itemName=SECOTRON.secotron-color-theme) |"
+            echo ""
+            echo "> **Test it:** Extensions panel → SECOTRON Color Theme → ··· → **Install Pre-Release Version**"
+          } >> "$GITHUB_STEP_SUMMARY"

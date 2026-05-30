@@ -48,3 +48,28 @@ jobs:
         with:
           files: "*.vsix"
           generate_release_notes: true
+
+      - name: Job summary
+        if: always()
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          VSIX_FILE=$(ls *.vsix 2>/dev/null | head -1)
+          VSIX_SIZE=$(du -sh "$VSIX_FILE" 2>/dev/null | cut -f1 || echo "—")
+          TAG="${{ github.ref_name }}"
+          DRY_RUN="${{ inputs.dry_run }}"
+          {
+            echo "## Stable Release"
+            echo "| | |"
+            echo "|---|---|"
+            echo "| **Version** | \`$VERSION\` |"
+            echo "| **VSIX** | \`$VSIX_FILE\` ($VSIX_SIZE) |"
+            echo "| **Tag** | \`$TAG\` |"
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "| **Published** | ⚠️ Dry run — skipped |"
+            else
+              echo "| **Published** | ✅ [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=SECOTRON.secotron-color-theme) |"
+            fi
+            if [[ "$TAG" == v* ]]; then
+              echo "| **Release** | [$TAG](${{ github.server_url }}/${{ github.repository }}/releases/tag/$TAG) |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

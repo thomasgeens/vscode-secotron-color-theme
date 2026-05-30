@@ -32,3 +32,19 @@ jobs:
           name: secotron-color-theme-${{ github.sha }}
           path: "*.vsix"
           retention-days: 7
+
+      - name: Job summary
+        if: always()
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          VSIX_FILE=$(ls *.vsix 2>/dev/null | head -1)
+          VSIX_SIZE=$(du -sh "$VSIX_FILE" 2>/dev/null | cut -f1 || echo "—")
+          {
+            echo "## CI"
+            echo "| | |"
+            echo "|---|---|"
+            echo "| **Version** | \`$VERSION\` |"
+            echo "| **VSIX** | \`$VSIX_FILE\` ($VSIX_SIZE) |"
+            echo "| **Commit** | [\`${GITHUB_SHA::7}\`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}) |"
+            echo "| **Branch** | \`${{ github.ref_name }}\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
