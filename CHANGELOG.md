@@ -4,6 +4,22 @@ All notable changes to the "secotron-color-theme" extension will be documented i
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.2.0](https://github.com/thomasgeens/vscode-secotron-color-theme/compare/v1.1.1...v1.2.0) (2026-05-30)
+
+
+### Features
+
+* **ci:** add job summaries to CI, Publish, and Pre-release workflows ([f9b8580](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/f9b858096d6424a42ba0cae634ab68275d0b1db9))
+* **theme:** add SECOTRON Dark and SECOTRON Light variants ([ee1abdc](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/ee1abdc0cb8dbe912e776bcb41b069a39abbfe78))
+
+
+### Bug Fixes
+
+* **ci:** exclude auto-generated CHANGELOG.md from markdownlint and prettier ([350f9d2](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/350f9d2af4677014d86419c80882a5f96563172f))
+* **ci:** use PAT for release-please so PR triggers CI workflows ([43567b6](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/43567b6599952d018c1f6cea1a2e45beb6eb2994))
+* **package:** align version to 1.1.0 matching release-please manifest ([21193c3](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/21193c3db8df63568320f9c04dffc5dddc7ebab1))
+* **release:** advance past v1.1.1 for release-please ([b78f604](https://github.com/thomasgeens/vscode-secotron-color-theme/commit/b78f6042b05586338526aa5e826cbf57404ce98d))
+
 ## [1.0.8] - 2021-05-20
 
 ### Changed
