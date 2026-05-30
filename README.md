@@ -1,7 +1,22 @@
 # SECOTRON Color Theme
 
 SECOTRON Color Theme is based upon SECOTRON's Corporate Identity Color Palette.
-![Example](example.png)
+
+## Variants
+
+The theme ships in three variants — pick whichever suits your setup from the theme picker (**Preferences: Color Theme** in the Command Palette).
+
+### SECOTRON
+
+![SECOTRON](SECOTRON-color-theme.png)
+
+### SECOTRON Dark
+
+![SECOTRON Dark](SECOTRON-dark-color-theme.png)
+
+### SECOTRON Light
+
+![SECOTRON Light](SECOTRON-light-color-theme.png)
 
 ## Enjoy our Theme
 

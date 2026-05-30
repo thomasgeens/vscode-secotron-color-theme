@@ -33,6 +33,16 @@
         "label": "SECOTRON",
         "uiTheme": "vs-dark",
         "path": "./themes/SECOTRON-color-theme.json"
+      },
+      {
+        "label": "SECOTRON Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/SECOTRON-dark-color-theme.json"
+      },
+      {
+        "label": "SECOTRON Light",
+        "uiTheme": "vs",
+        "path": "./themes/SECOTRON-light-color-theme.json"
       }
     ]
   },

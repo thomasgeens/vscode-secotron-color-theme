@@ -8,6 +8,9 @@
 !README.md
 !package.json
 !color_palette.png
-!example.png
 !logo.png
-!themes/**
+!SECOTRON-color-theme.png
+!SECOTRON-dark-color-theme.png
+!SECOTRON-light-color-theme.png
+!themes/
+!themes/*.json

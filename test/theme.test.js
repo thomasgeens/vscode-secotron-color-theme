@@ -2,39 +2,52 @@ const fs = require("fs");
 const path = require("path");
 const { parse, printParseErrorCode } = require("jsonc-parser");
 
-const THEME_PATH = path.resolve(
-  __dirname,
-  "../themes/SECOTRON-color-theme.json",
-);
+// VS Code color values: #RGB, #RGBA, #RRGGBB, #RRGGBBAA
+const HEX_COLOR = /^#([0-9A-Fa-f]{3,4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
 
-function loadTheme() {
-  const raw = fs.readFileSync(THEME_PATH, "utf8");
+const THEMES = [
+  {
+    label: "SECOTRON",
+    file: "../themes/SECOTRON-color-theme.json",
+    type: "dark",
+  },
+  {
+    label: "SECOTRON Dark",
+    file: "../themes/SECOTRON-dark-color-theme.json",
+    type: "dark",
+  },
+  {
+    label: "SECOTRON Light",
+    file: "../themes/SECOTRON-light-color-theme.json",
+    type: "light",
+  },
+];
+
+function loadTheme(file) {
+  const raw = fs.readFileSync(path.resolve(__dirname, file), "utf8");
   const errors = [];
   const theme = parse(raw, errors);
   return { theme, errors };
 }
 
-// VS Code color values: #RGB, #RGBA, #RRGGBB, #RRGGBBAA
-const HEX_COLOR = /^#([0-9A-Fa-f]{3,4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
-
-describe("SECOTRON color theme", () => {
-  test("theme file parses without errors", () => {
-    const { errors } = loadTheme();
+describe.each(THEMES)("$label theme", ({ file, type }) => {
+  test("parses without errors", () => {
+    const { errors } = loadTheme(file);
     const messages = errors.map(
       (e) => `${printParseErrorCode(e.error)} at offset ${e.offset}`,
     );
     expect(messages).toEqual([]);
   });
 
-  test("theme has required top-level fields", () => {
-    const { theme } = loadTheme();
-    expect(theme.type).toMatch(/^(dark|light|hc-dark|hc-light)$/);
+  test("has required top-level fields", () => {
+    const { theme } = loadTheme(file);
+    expect(theme.type).toBe(type);
     expect(typeof theme.colors).toBe("object");
     expect(Array.isArray(theme.tokenColors)).toBe(true);
   });
 
   test("all editor colors are valid hex values", () => {
-    const { theme } = loadTheme();
+    const { theme } = loadTheme(file);
     const invalid = [];
     for (const [key, value] of Object.entries(theme.colors)) {
       if (value !== null && !HEX_COLOR.test(value)) {
@@ -44,8 +57,8 @@ describe("SECOTRON color theme", () => {
     expect(invalid).toEqual([]);
   });
 
-  test("all token color settings have valid hex foreground values", () => {
-    const { theme } = loadTheme();
+  test("all token color foreground values are valid hex", () => {
+    const { theme } = loadTheme(file);
     const invalid = [];
     for (const token of theme.tokenColors) {
       const fg = token?.settings?.foreground;
@@ -57,13 +70,13 @@ describe("SECOTRON color theme", () => {
     }
     expect(invalid).toEqual([]);
   });
+});
 
-  test("theme is registered in package.json", () => {
-    const pkg = require("../package.json");
-    const themes = pkg.contributes?.themes ?? [];
-    const registered = themes.some(
-      (t) => t.path === "./themes/SECOTRON-color-theme.json",
-    );
-    expect(registered).toBe(true);
-  });
+test("all themes are registered in package.json", () => {
+  const pkg = require("../package.json");
+  const registered = (pkg.contributes?.themes ?? []).map((t) => t.path);
+  for (const { file } of THEMES) {
+    const pkgPath = "./" + path.relative(path.resolve(__dirname, ".."), path.resolve(__dirname, file));
+    expect(registered).toContain(pkgPath);
+  }
 });
